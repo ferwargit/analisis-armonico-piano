@@ -23,7 +23,7 @@ npm install
 npm test
 
 # Ejecutar ejemplo
-npm run analyze -- --input examples/sample.musicxml
+npm run analyze -- --input examples/input/sample.musicxml
 ```
 
 ---
@@ -37,41 +37,148 @@ analisis-armonico-piano/
 │   ├── skills.md
 │   ├── rules.md
 │   └── session-template.md
-├── .github/
-│   └── copilot-instructions.md
 ├── .vscode/                   # Configuración VSCode
 ├── config/                    # Configuración del analizador
 │   ├── analyzer.config.json
 │   └── analyzer.schema.json
 ├── docs/                      # Documentación
 ├── examples/                  # Archivos MusicXML de ejemplo
-├── models/                    # Guías de modelos IA
+├── n8n/                       # Integración con n8n
+│   ├── workflows/
+│   └── nodes/
 ├── output/                    # Archivos generados (gitignored)
-├── src/
+├── scripts/                   # Scripts de utilidad
+├── src/                       # Código fuente principal
 │   ├── core/                  # Modelos y utilidades base
-│   │   ├── models/
-│   │   ├── constants/
-│   │   └── utils/
-│   ├── parsing/               # Parser MusicXML
+│   │   ├── models/            # Modelos de datos
+│   │   │   ├── Note.js
+│   │   │   ├── Chord.js
+│   │   │   ├── Measure.js
+│   │   │   ├── Key.js
+│   │   │   ├── Scale.js
+│   │   │   ├── Cadence.js
+│   │   │   ├── Progression.js
+│   │   │   └── index.js
+│   │   ├── constants/         # Constantes musicales
+│   │   │   ├── notes.js
+│   │   │   ├── intervals.js
+│   │   │   ├── chordTypes.js
+│   │   │   ├── scaleTypes.js
+│   │   │   ├── modes.js
+│   │   │   ├── cadenceTypes.js
+│   │   │   └── index.js
+│   │   ├── utils/             # Utilidades generales
+│   │   │   ├── noteUtils.js
+│   │   │   ├── intervalUtils.js
+│   │   │   ├── mathUtils.js
+│   │   │   └── index.js
+│   │   └── index.js
+│   ├── parsing/               # Módulo de parsing MusicXML
+│   │   ├── MusicXMLParser.js
+│   │   ├── extractors/        # Extractores específicos
+│   │   │   ├── noteExtractor.js
+│   │   │   ├── keyExtractor.js
+│   │   │   ├── timeExtractor.js
+│   │   │   ├── measureExtractor.js
+│   │   │   └── index.js
+│   │   ├── transformers/      # Transformadores de datos
+│   │   │   ├── handUnifier.js
+│   │   │   ├── handSeparator.js
+│   │   │   └── index.js
+│   │   └── index.js
 │   ├── analysis/              # Módulos de análisis
-│   │   ├── tonality/
-│   │   ├── chords/
-│   │   ├── harmony/
-│   │   ├── cadences/
-│   │   ├── modulations/
-│   │   └── scales/
+│   │   ├── Analyzer.js        # Analizador principal
+│   │   ├── tonality/          # Detección de tonalidad
+│   │   │   ├── TonalityDetector.js
+│   │   │   ├── algorithms/
+│   │   │   │   ├── KrumhanslSchmuckler.js
+│   │   │   │   ├── BassAnalysis.js
+│   │   │   │   ├── NoteFrequency.js
+│   │   │   │   ├── CadenceAnalysis.js
+│   │   │   │   └── index.js
+│   │   │   ├── ConsensusEngine.js
+│   │   │   └── profiles.js
+│   │   ├── modality/          # Detección de modalidad
+│   │   ├── chords/            # Detección de acordes
+│   │   ├── harmony/           # Análisis armónico
+│   │   ├── cadences/          # Detección de cadencias
+│   │   ├── modulations/       # Detección de modulaciones
+│   │   ├── scales/            # Detección/sugerencia de escalas
+│   │   ├── chromatic/         # Notas cromáticas
+│   │   └── index.js
 │   └── output/                # Generadores de output
-│       ├── musicxml/
-│       ├── markdown/
-│       └── json/
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── fixtures/
-├── README.md
-├── jest.config.js
-├── package.json
-└── ...
+│       ├── OutputGenerator.js
+│       ├── musicxml/          # Generadores MusicXML
+│       │   ├── MusicXMLWriter.js
+│       │   ├── HarmonyWriter.js
+│       │   └── variants/
+│       ├── markdown/          # Generadores Markdown
+│       │   ├── ReportGenerator.js
+│       │   ├── sections/
+│       │   └── templates/
+│       ├── json/              # Generadores JSON
+│       │   └── JSONExporter.js
+│       └── index.js
+├── tests/                     # Tests del proyecto
+│   ├── unit/                  # Tests unitarios
+│   │   ├── core/
+│   │   │   ├── models/
+│   │   │   ├── constants/
+│   │   │   └── utils/
+│   │   ├── parsing/
+│   │   ├── analysis/
+│   │   │   ├── tonality/
+│   │   │   ├── chords/
+│   │   │   ├── harmony/
+│   │   │   ├── cadences/
+│   │   │   └── scales/
+│   │   └── output/
+│   ├── integration/           # Tests de integración
+│   ├── e2e/                   # Tests end-to-end
+│   ├── fixtures/              # Datos de prueba
+│   │   ├── musicxml/
+│   │   ├── expected/
+│   │   └── mocks/
+│   └── helpers/               # Utilidades para tests
+├── .eslintrc.json             # Configuración de ESLint
+├── .prettierrc                # Configuración de Prettier
+├── jest.config.js             # Configuración de Jest
+├── .gitignore                 # Archivos a ignorar
+├── package.json               # Configuración del proyecto
+├── README.md                  # Documentación principal
+└── LICENSE                    # Licencia del proyecto
+```
+
+---
+
+## Configuración de Desarrollo
+
+### Archivos de Configuración
+
+El proyecto incluye los siguientes archivos de configuración:
+
+- `package.json` - Define dependencias, scripts y metadatos del proyecto
+- `jest.config.js` - Configuración para pruebas unitarias e integración
+- `.eslintrc.json` - Reglas de estilo y buenas prácticas para el código
+- `.prettierrc` - Configuración de formateo automático
+- `.gitignore` - Lista de archivos excluidos del control de versiones
+- `config/analyzer.config.json` - Configuración específica del analizador
+- `config/analyzer.schema.json` - Esquema de validación de la configuración
+
+### Scripts Disponibles
+
+```bash
+# Desarrollo
+npm test                    # Ejecutar todos los tests
+npm run test:watch         # Ejecutar tests en modo observación
+npm run test:coverage      # Ejecutar tests con cobertura
+npm run test:unit          # Ejecutar solo tests unitarios
+npm run test:integration   # Ejecutar solo tests de integración
+npm run lint               # Verificar calidad del código
+npm run lint:fix           # Corregir problemas automáticamente
+npm run format             # Formatear código
+npm run analyze            # Ejecutar análisis de MusicXML
+npm start                  # Ejecutar el programa principal
 ```
 
 ---
@@ -98,8 +205,11 @@ npm run test:watch
 # Lint mientras desarrollas
 npm run lint
 
+# Formatear código
+npm run format
+
 # Probar con archivo de ejemplo
-npm run analyze:dev
+npm run analyze -- --input examples/input/sample.musicxml
 ```
 
 ### 3. Antes de Commit
@@ -111,8 +221,8 @@ npm test
 # Verificar lint
 npm run lint
 
-# Verificar tipos (si aplica)
-npm run typecheck
+# Formatear código
+npm run format
 ```
 
 ### 4. Commit y PR

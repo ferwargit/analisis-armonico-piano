@@ -41,7 +41,7 @@ feat(analysis): implement harmonic progression analyzer
 
 ### `feat` - Nueva característica
 
-使用时提交新功能或功能改进。
+提交新功能或功能改进。
 
 ```
 feat(analysis): add harmonic function detection
@@ -388,39 +388,23 @@ module.exports = {
 npx husky add .husky/commit-msg 'npx --no -- commitlint --edit "$1"'
 ```
 
-### Configuración de Git (opcional)
+### Configuración de Git Hooks para el proyecto actual
 
-Establecer el editor de commit:
+Para habilitar los hooks de Git en este proyecto, sigue estos pasos:
 
+1. Instala las dependencias de desarrollo:
 ```bash
-git config core.editor "code --wait"
+npm install
 ```
 
-### Script de validación (alternativa sin Husky)
-
-**`validate-commit.js`**:
-
-```javascript
-#!/usr/bin/env node
-
-const fs = require("fs");
-const commitFile = fs.readFileSync(process.argv[2], "utf8");
-const commitMessage = commitFile.split("\n")[0];
-
-const typeRegex =
-    /^(feat|fix|docs|style|refactor|test|chore|perf|ci)(\(.+\))?: .+$/;
-
-if (!typeRegex.test(commitMessage)) {
-    console.error("Invalid commit message format!");
-    console.error("Expected: <type>(<scope>): <description>");
-    console.error(
-        "Types: feat, fix, docs, style, refactor, test, chore, perf, ci",
-    );
-    process.exit(1);
-}
-
-console.log("Commit message validated successfully");
+2. Si usas Husky, inicializa el sistema de hooks:
+```bash
+npx husky install
 ```
+
+3. Asegúrate de que el hook de commit-msg esté configurado (como se muestra arriba).
+
+4. Alternativamente, puedes usar un script de validación personalizado. Crea un archivo `.git/hooks/commit-msg` con permisos de ejecución que valide el formato del mensaje de commit.
 
 ---
 
@@ -428,9 +412,10 @@ console.log("Commit message validated successfully");
 
 ### Antes de commit
 
-1. Asegúrate de que los tests pasen
+1. Asegúrate de que los tests pasen: `npm test`
 2. Ejecuta el linter: `npm run lint`
-3. Verifica el mensaje de commit
+3. Formatea el código: `npm run format`
+4. Verifica el mensaje de commit
 
 ### Crear commit
 
@@ -445,14 +430,23 @@ git commit -m "feat(analysis): add dominant function detection"
 git commit
 ```
 
-### Verificar historial
+### Ejemplos de commits para el estado actual del proyecto
 
-```bash
-# Ver commits con formato convencional
-git log --oneline --all
+Después de haber completado la configuración inicial del proyecto:
 
-# Filtrar por tipo
-git log --grep="^feat" --oneline
+```
+chore: create package.json with project configuration
+docs: create README.md with project overview and quick start
+chore: add .gitignore with appropriate exclusions
+chore: create LICENSE file with MIT license
+chore: configure jest.config.js for testing
+chore: configure .eslintrc.json for code quality
+chore: configure .prettierrc for code formatting
+chore: create directory structure according to FOLDER_STRUCTURE.md
+feat: create index.js files as module entry points
+docs: update SETUP.md with corrected instructions
+docs: update PROJECT_PLAN.md with current implementation status
+docs: update DEVELOPMENT.md with configuration references
 ```
 
 ---
