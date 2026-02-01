@@ -6,18 +6,22 @@
 analisis-armonico-piano/
 │
 ├── 📁 .agent/ # Configuración de agentes IA
-│ ├── config.json # Configuración general de agentes
+│ ├── config.extended.json # Configuración extendida de agentes
+│ ├── config.simple.json # Configuración simple de agentes
 │ ├── context.md # Contexto del proyecto para IAs
 │ ├── rules.md # Reglas y restricciones
 │ ├── skills.md # Habilidades requeridas
+│ ├── session-templates.md # Plantillas de sesiones de desarrollo
 │ ├── 📁 prompts/ # Prompts reutilizables
-│ │ ├── code-review.md
 │ │ ├── generate-test.md
-│ │ └── refactor.md
+│ │ ├── implement-feature.md
+│ │ └── minmax-analysis.md
 │ └── 📁 models/ # Configuración por modelo
 │ ├── claude.md
 │ ├── gemini.md
-│ └── copilot.md
+│ ├── copilot.md
+│ ├── minmax.md # Configuración para modelo MinMax
+│ └── model-selection.md # Selección de modelo de IA
 │
 ├── 📁 .vscode/ # Configuración VSCode
 │ ├── settings.json
@@ -206,6 +210,8 @@ analisis-armonico-piano/
 │ │ ├── index.js
 │ │ ├── default.json # Configuración por defecto
 │ │ ├── ConfigLoader.js # Cargador de configuración
+│ │ ├── analyzer.config.json # Configuración del analizador
+│ │ ├── analyzer.schema.json # Esquema de validación del analizador
 │ │ └── schemas/ # Esquemas de validación
 │ │ └── configSchema.js
 │ │
@@ -265,7 +271,10 @@ analisis-armonico-piano/
 ├── 📁 scripts/ # Scripts de utilidad
 │ ├── analyze.js # Script CLI para analizar
 │ ├── generate-test-files.js # Generar archivos de prueba
-│ └── validate-config.js # Validar configuración
+│ ├── test-data.json # Datos de configuración para archivos de prueba
+│ ├── validate-config.js # Validar configuración
+│ ├── setup.js # Script de configuración inicial
+│ └── verify-installation.js # Verificar instalación del proyecto
 │
 ├── 📁 n8n/ # Integración n8n
 │ ├── README.md

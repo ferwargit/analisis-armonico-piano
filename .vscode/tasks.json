@@ -40,7 +40,15 @@
     {
       "label": "Clean Output",
       "type": "shell",
-      "command": "rm -rf output/* coverage/*",
+      "windows": {
+        "command": "cmd /c \"if exist output rmdir /s /q output && if exist coverage rmdir /s /q coverage\""
+      },
+      "linux": {
+        "command": "rm -rf output/* coverage/*"
+      },
+      "osx": {
+        "command": "rm -rf output/* coverage/*"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "silent"

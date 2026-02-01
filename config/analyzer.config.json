@@ -140,6 +140,12 @@
       "classify": true,
       "types": ["passing", "neighbor", "appoggiatura", "escape", "anticipation", "suspension"],
       "suggestFunction": true
+    },
+    "context": {
+      "language": {
+        "code": "es",
+        "name": "Spanish"
+      }
     }
   },
 

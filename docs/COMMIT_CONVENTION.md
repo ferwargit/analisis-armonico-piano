@@ -41,7 +41,7 @@ feat(analysis): implement harmonic progression analyzer
 
 ### `feat` - Nueva característica
 
-提交新功能或功能改进。
+Agregar nuevas funciones o mejoras de funcionalidad.
 
 ```
 feat(analysis): add harmonic function detection
@@ -51,7 +51,7 @@ feat(output): add MIDI export functionality
 
 ### `fix` - Corrección de bug
 
-提交错误修复或问题解决。
+Corregir errores o problemas en el código.
 
 ```
 fix(parsing): resolve crash when parsing complex chords
@@ -61,7 +61,7 @@ fix(analysis): correct harmonic series calculation
 
 ### `docs` - Cambios en documentación
 
-提交文档更新，不包括代码变更。
+Actualizar documentación sin incluir cambios de código.
 
 ```
 docs: update API documentation for chord module
@@ -71,7 +71,7 @@ docs: improve JSDoc comments in analyzer.js
 
 ### `style` - Cambios de estilo
 
-提交不影响代码含义的格式化变更（空格、分号、缩进等）。
+Cambios de formato que no afectan el significado del código (espacios, punto y coma, sangría, etc.).
 
 ```
 style: fix indentation in parser.js
@@ -81,7 +81,7 @@ style: standardize quote style to single quotes
 
 ### `refactor` - Refactorización
 
-提交既不修复错误也不添加功能的代码变更。
+Cambios en el código que no corrigen errores ni agregan funciones.
 
 ```
 refactor(core): simplify note class structure
@@ -91,7 +91,7 @@ refactor(parsing): improve chord pattern matching algorithm
 
 ### `test` - Tests
 
-提交测试相关变更，包括添加、修改或修复测试。
+Cambios relacionados con pruebas, incluyendo agregar, modificar o reparar pruebas.
 
 ```
 test: add unit tests for chord parser
@@ -101,7 +101,7 @@ test(analysis): add integration tests for harmonic analysis
 
 ### `chore` - Tareas de mantenimiento
 
-提交构建过程、工具配置或辅助功能的变更。
+Cambios en el proceso de construcción, configuración de herramientas o funciones auxiliares.
 
 ```
 chore: update package.json dependencies
@@ -111,7 +111,7 @@ chore: configure CI/CD pipeline
 
 ### `perf` - Mejoras de rendimiento
 
-提交性能优化相关的代码变更。
+Cambios de código relacionados con optimización del rendimiento.
 
 ```
 perf(analysis): optimize harmonic progression calculation
@@ -121,7 +121,7 @@ perf(parsing): improve chord recognition speed
 
 ### `ci` - Cambios en CI/CD
 
-提交CI/CD配置和脚本的变更。
+Cambios en la configuración y scripts de CI/CD.
 
 ```
 ci: add GitHub Actions workflow for testing
@@ -267,8 +267,8 @@ Closes #42
 
 Usar el cuerpo para proporcionar contexto adicional cuando sea necesario:
 
-- **为什么** se realizó el cambio
-- **如何** funciona (si es complejo)
+- **Por qué** se realizó el cambio
+- **Cómo** funciona (si es complejo)
 - **Referencias** a issues o PR relacionados
 - **Notas** sobre efectos secundarios
 
@@ -316,7 +316,7 @@ BREAKING CHANGE: Note constructor now requires pitch class parameter
 Los breaking changes serán automáticamente:
 
 1. Marcados como `⚠ BREAKING CHANGE` en el changelog
-2. Incluidos en la sección de升级注意事项
+2. Incluidos en la sección de notas de actualización
 3. Utilizados para determinar el versionado semántico (major)
 
 ---
@@ -334,7 +334,7 @@ npx husky install
 
 ### Commitlint
 
-使用 commitlint 验证提交消息：
+Usar commitlint para validar mensajes de commit:
 
 ```bash
 npm install --save-dev @commitlint/cli @commitlint/config-conventional

@@ -5,7 +5,7 @@
         "domain": "music-theory-analysis"
     },
     "preferences": {
-        "primaryModel": "minimax-m2.1",
+        "primaryModel": "minimax/minimax-m2.1:free",
         "fallbackModel": "claude-3-5-sonnet-20241022",
         "inlineModel": "copilot",
         "codeStyle": "eslint-prettier",

@@ -39,7 +39,7 @@ Este proyecto requiere conocimiento de:
 
 ## Convenciones de Código
 
-- Archivos: camelCase.js
+- Archivos: kebab-case.js
 - Clases: PascalCase
 - Funciones: camelCase
 - Constantes: UPPER_SNAKE_CASE

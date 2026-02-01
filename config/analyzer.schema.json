@@ -367,6 +367,21 @@
                         "suggestFunction": { "type": "boolean" }
                     },
                     "additionalProperties": false
+                },
+                "context": {
+                    "type": "object",
+                    "properties": {
+                        "language": {
+                            "type": "object",
+                            "properties": {
+                                "code": { "type": "string" },
+                                "name": { "type": "string" }
+                            },
+                            "required": ["code", "name"],
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
                 }
             },
             "additionalProperties": false
@@ -488,8 +503,67 @@
                     "type": "integer",
                     "minimum": 1,
                     "maximum": 4
+                },
+                "enabledFeatures": {
+                    "type": "object",
+                    "properties": {
+                        "phase1": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "basicParsing",
+                                    "tonalityKS",
+                                    "basicChords",
+                                    "romanNumerals",
+                                    "jsonOutput"
+                                ]
+                            }
+                        },
+                        "phase2": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "allTonalityAlgorithms",
+                                    "harmonicFunctions",
+                                    "basicCadences",
+                                    "markdownOutput",
+                                    "musicxmlOutput"
+                                ]
+                            }
+                        },
+                        "phase3": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "allChordTypes",
+                                    "tensions",
+                                    "modes",
+                                    "allCadences",
+                                    "modulations",
+                                    "pedagogicalReport"
+                                ]
+                            }
+                        },
+                        "phase4": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "n8nIntegration",
+                                    "apiEndpoints",
+                                    "configurableEverything"
+                                ]
+                            }
+                        }
+                    },
+                    "additionalProperties": false
                 }
-            }
+            },
+            "required": ["phase"],
+            "additionalProperties": false
         }
     }
 }

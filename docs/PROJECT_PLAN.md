@@ -267,5 +267,5 @@ Objetivo: Automatización completa
 
 ---
 
-_Última actualización: 2026-01-31_
+_Última actualización: 2026-02-01_
 _Estado: En implementación_

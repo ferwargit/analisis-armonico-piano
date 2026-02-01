@@ -57,7 +57,7 @@ Este es un analizador armónico musical para archivos MusicXML.
 Stack: Node.js, Jest, xml2js
 
 ## Convenciones de Código
-- Usar ES Modules (import/export)
+- Usar CommonJS (require/module.exports)
 - Funciones puras cuando sea posible
 - JSDoc para documentación
 - Nombrar en inglés, comentarios en español permitidos

@@ -45,7 +45,7 @@
 ## Reglas de Testing
 
 - Mínimo 80% cobertura
-- Describe/it con descripciones claras en inglés
+- Describe/it con descripciones claras en español
 - Un assert por test cuando sea posible
 - Tests deben ser independientes
 - Usar fixtures en tests/fixtures/

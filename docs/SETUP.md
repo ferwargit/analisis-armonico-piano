@@ -118,4 +118,4 @@ npm start # Ejecutar el programa principal
 
 ---
 
-_Última actualización: 2026-01-31_
+_Última actualización: 2026-02-01_
