@@ -1,0 +1,219 @@
+{
+  "$schema": "./analyzer.schema.json",
+  "version": "1.0.0",
+
+  "input": {
+    "format": "musicxml",
+    "encoding": "utf-8",
+    "validation": true
+  },
+
+  "analysis": {
+    "piano": {
+      "handUnification": "unified",
+      "options": ["unified", "separate", "both"]
+    },
+
+    "tonality": {
+      "algorithms": {
+        "krumhanslSchmuckler": {
+          "enabled": true,
+          "weight": 0.4
+        },
+        "bassAnalysis": {
+          "enabled": true,
+          "weight": 0.2
+        },
+        "noteFrequency": {
+          "enabled": true,
+          "weight": 0.2
+        },
+        "cadenceAnalysis": {
+          "enabled": true,
+          "weight": 0.2
+        }
+      },
+      "consensusThreshold": 0.7,
+      "detectModes": true,
+      "modes": {
+        "major": ["ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"],
+        "melodicMinor": ["melodicMinor", "dorianB2", "lydianAugmented", "lydianDominant", "mixolydianB6", "locrianNat2", "altered"],
+        "harmonicMinor": ["harmonicMinor", "locrianNat6", "ionianAugmented", "dorianSharp4", "phrygianDominant", "lydianSharp2", "ultraLocrian"]
+      }
+    },
+
+    "chords": {
+      "granularity": "beat",
+      "options": ["beat", "subdivision", "noteChange", "configurable"],
+      "types": {
+        "triads": {
+          "major": true,
+          "minor": true,
+          "diminished": true,
+          "augmented": true
+        },
+        "sevenths": {
+          "major7": true,
+          "dominant7": true,
+          "minor7": true,
+          "halfDiminished": true,
+          "diminished7": true,
+          "minorMajor7": true
+        },
+        "extensions": {
+          "ninth": true,
+          "eleventh": true,
+          "thirteenth": true,
+          "altered": true
+        },
+        "suspended": {
+          "sus2": true,
+          "sus4": true
+        },
+        "added": {
+          "add9": true,
+          "add11": true,
+          "sixNine": true
+        }
+      },
+      "inversions": {
+        "detect": true,
+        "classify": true,
+        "notation": "slash"
+      }
+    },
+
+    "harmony": {
+      "numeralSystem": "both",
+      "options": ["roman", "nashville", "both"],
+      "functions": {
+        "basic": ["tonic", "subdominant", "dominant"],
+        "advanced": ["predominant", "secondaryDominant", "substitute", "passing", "embellishment", "borrowed"]
+      },
+      "tensions": {
+        "classify": true,
+        "showAvailable": true,
+        "showAvoid": true
+      }
+    },
+
+    "cadences": {
+      "classical": {
+        "authenticPerfect": true,
+        "authenticImperfect": true,
+        "plagal": true,
+        "half": true,
+        "deceptive": true,
+        "phrygian": true
+      },
+      "jazz": {
+        "iiVI": true,
+        "backdoor": true,
+        "tritoneSubstitute": true,
+        "modal": true
+      },
+      "searchPositions": ["half", "end", "any"]
+    },
+
+    "modulations": {
+      "detectByAccidentals": true,
+      "detectByProgression": true,
+      "commonTypes": ["dominant", "relative", "parallel", "chromatic"]
+    },
+
+    "scales": {
+      "suggestPerChord": true,
+      "showAlternatives": true,
+      "maxAlternatives": 3,
+      "categories": {
+        "major": true,
+        "minor": true,
+        "modes": true,
+        "symmetric": true,
+        "bebop": true,
+        "pentatonic": true,
+        "blues": true
+      }
+    },
+
+    "chromaticNotes": {
+      "classify": true,
+      "types": ["passing", "neighbor", "appoggiatura", "escape", "anticipation", "suspension"],
+      "suggestFunction": true
+    }
+  },
+
+  "output": {
+    "formats": {
+      "musicxml": {
+        "enabled": true,
+        "variants": {
+          "americanCifrado": true,
+          "romanNumerals": true,
+          "combined": true,
+          "harmonySymbols": true
+        },
+        "chordPosition": "above",
+        "positionOptions": ["above", "below", "between"]
+      },
+      "markdown": {
+        "enabled": true,
+        "verbosity": "intermediate",
+        "verbosityOptions": ["concise", "intermediate", "detailed"],
+        "sections": {
+          "header": true,
+          "summary": true,
+          "measureByMeasure": true,
+          "progression": true,
+          "scales": true,
+          "cadences": true,
+          "modulations": true,
+          "pedagogicalNotes": true,
+          "technicalData": true
+        },
+        "context": "both",
+        "contextOptions": ["classical", "jazz", "both"]
+      },
+      "json": {
+        "enabled": true,
+        "pretty": true,
+        "includeMetadata": true
+      }
+    },
+    "directory": "./output",
+    "filenamePattern": "{original}_{timestamp}_{format}"
+  },
+
+  "features": {
+    "phase": 1,
+    "enabledFeatures": {
+      "phase1": [
+        "basicParsing",
+        "tonalityKS",
+        "basicChords",
+        "romanNumerals",
+        "jsonOutput"
+      ],
+      "phase2": [
+        "allTonalityAlgorithms",
+        "harmonicFunctions",
+        "basicCadences",
+        "markdownOutput",
+        "musicxmlOutput"
+      ],
+      "phase3": [
+        "allChordTypes",
+        "tensions",
+        "modes",
+        "allCadences",
+        "modulations",
+        "pedagogicalReport"
+      ],
+      "phase4": [
+        "n8nIntegration",
+        "apiEndpoints",
+        "configurableEverything"
+      ]
+    }
+  }
+}

@@ -1,0 +1,64 @@
+{
+    "project": {
+        "name": "analisis-armonico-piano",
+        "version": "0.1.0",
+        "language": "javascript",
+        "runtime": "node",
+        "testFramework": "jest"
+    },
+    "models": {
+        "primaryModel": "minimax-m2.1",
+        "fallbackModel": "claude-3-5-sonnet-20241022",
+        "inlineModel": "copilot"
+    },
+    "preferences": {
+        "codeStyle": "functional",
+        "documentation": "jsdoc",
+        "language": {
+            "code": "en",
+            "comments": "es",
+            "docs": "es"
+        },
+        "verbosity": "balanced"
+    },
+    "context": {
+        "domain": "music-theory",
+        "subdomains": [
+            "harmony",
+            "chord-detection",
+            "musicxml",
+            "music-analysis"
+        ],
+        "targetUsers": [
+            "piano-students",
+            "composition-students",
+            "music-teachers"
+        ]
+    },
+    "conventions": {
+        "fileNaming": "kebab-case",
+        "functionNaming": "camelCase",
+        "constantNaming": "UPPER_SNAKE_CASE",
+        "classNaming": "PascalCase"
+    },
+    "paths": {
+        "source": "src",
+        "tests": "tests",
+        "docs": "docs",
+        "examples": "examples",
+        "output": "output"
+    },
+    "features": {
+        "phases": {
+            "current": 1,
+            "total": 4
+        },
+        "flags": {
+            "modalDetection": false,
+            "advancedChords": false,
+            "jazzCadences": false,
+            "modulationDetection": false,
+            "multipleOutputFormats": false
+        }
+    }
+}

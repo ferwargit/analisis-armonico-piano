@@ -1,0 +1,41 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "jest.autoRun": "off",
+  "jest.showCoverageOnLoad": true,
+
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "yaml": true,
+    "json": true
+  },
+
+  "files.associations": {
+    "*.musicxml": "xml"
+  },
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/coverage": true,
+    "**/dist": true,
+    "**/output": true
+  },
+
+  "workbench.editor.labelFormat": "short",
+
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.defaultProfile.linux": "bash",
+  "terminal.integrated.defaultProfile.osx": "zsh"
+}

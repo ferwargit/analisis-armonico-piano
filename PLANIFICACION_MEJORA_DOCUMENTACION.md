@@ -1,0 +1,168 @@
+# Planificación Detallada para Mejorar la Documentación y Estructura del Proyecto
+
+## Descripción General
+
+Este documento detalla la planificación paso a paso para mejorar la documentación y estructura del proyecto "Análisis Armónico Piano", basado en la auditoría inicial que identificó deficiencias en los archivos fundamentales del proyecto.
+
+## Objetivo
+
+Actualizar y crear los archivos necesarios para que el proyecto tenga una base sólida desde el inicio, con documentación coherente y estructura funcional que minimice futuras recomendaciones de mejora.
+
+---
+
+## Fase 1: Creación de Archivos Críticos (Prioridad Máxima)
+
+### Paso 1.1: Crear package.json
+- [ ] Crear archivo `package.json` en la raíz del proyecto con toda la información del proyecto
+- [ ] Incluir scripts de desarrollo, test y análisis como se menciona en SETUP.md
+- [ ] Definir dependencias principales (xml2js) y de desarrollo (jest, eslint, prettier)
+
+### Paso 1.2: Crear README.md en la Raíz
+- [ ] Crear archivo README.md en la raíz del proyecto
+- [ ] Incluir descripción del proyecto, características principales
+- [ ] Agregar instrucciones de instalación y uso rápidas
+- [ ] Incluir diagrama de arquitectura y flujo de trabajo
+
+### Paso 1.3: Crear .gitignore
+- [ ] Crear archivo .gitignore con las exclusiones adecuadas
+- [ ] Incluir node_modules/, coverage/, dist/, output/, archivos temporales
+- [ ] Agregar archivos específicos de IDE y sistema operativo
+
+### Paso 1.4: Crear Archivo de Licencia
+- [ ] Crear archivo LICENSE con la licencia apropiada para el proyecto
+- [ ] Documentar términos de uso y derechos de autor
+
+---
+
+## Fase 2: Configuración de Herramientas de Desarrollo (Alta Prioridad)
+
+### Paso 2.1: Configurar Jest
+- [ ] Crear `jest.config.js` con la configuración especificada en TESTING_STRATEGY.md
+- [ ] Incluir umbrales de cobertura, directorios de test, etc.
+
+### Paso 2.2: Configurar ESLint
+- [ ] Crear `.eslintrc.json` con las reglas especificadas en SETUP.md
+- [ ] Incluir reglas para JavaScript moderno, buenas prácticas y consistencia
+
+### Paso 2.3: Configurar Prettier
+- [ ] Crear `.prettierrc` con las opciones especificadas en SETUP.md
+- [ ] Asegurar consistencia de formato en todo el código
+
+---
+
+## Fase 3: Estructura de Directorios (Alta Prioridad)
+
+### Paso 3.1: Crear Estructura de Directorios Principal
+- [ ] Crear directorios `src/`, `tests/`, `examples/`, `scripts/`, `n8n/`
+- [ ] Dentro de cada directorio, crear subdirectorios según FOLDER_STRUCTURE.md
+
+### Paso 3.2: Crear Archivos Base
+- [ ] Crear archivos `index.js` vacíos en las ubicaciones apropiadas
+- [ ] Establecer puntos de entrada para cada módulo
+
+---
+
+## Fase 4: Mejora de Documentación Existente (Media Prioridad)
+
+### Paso 4.1: Corregir SETUP.md
+- [ ] Eliminar caracteres de formato incorrectos
+- [ ] Actualizar instrucciones para reflejar archivos ya creados
+- [ ] Asegurar que los comandos sean ejecutables tal como están escritos
+
+### Paso 4.2: Actualizar PROJECT_PLAN.md
+- [ ] Incorporar referencias a los archivos de configuración creados
+- [ ] Ajustar cronograma para reflejar el estado actual del proyecto
+- [ ] Agregar sección sobre el estado actual de implementación
+
+### Paso 4.3: Actualizar DEVELOPMENT.md
+- [ ] Incluir referencias a los archivos de configuración creados
+- [ ] Actualizar instrucciones de inicio rápido con comandos funcionales
+- [ ] Agregar sección sobre cómo trabajar con la estructura ya creada
+
+### Paso 4.4: Actualizar COMMIT_CONVENTION.md
+- [ ] Incluir información sobre cómo usar los hooks de Git mencionados
+- [ ] Agregar ejemplos de commits para el estado actual del proyecto
+
+---
+
+## Fase 5: Configuración de Entorno de Desarrollo (Media Prioridad)
+
+### Paso 5.1: Actualizar Configuración de VSCode
+- [ ] Asegurar que las referencias en launch.json y tasks.json sean válidas
+- [ ] Verificar que las extensiones recomendadas estén alineadas con las herramientas usadas
+
+### Paso 5.2: Crear Archivos de Ejemplo
+- [ ] Crear archivos MusicXML de ejemplo en `examples/input/`
+- [ ] Establecer casos de prueba básicos para pruebas iniciales
+
+---
+
+## Fase 6: Scripts de Desarrollo (Media Prioridad)
+
+### Paso 6.1: Crear Scripts de Utilidad
+- [ ] Crear `scripts/analyze.js` como punto de entrada CLI
+- [ ] Implementar scripts para validación de configuración
+- [ ] Crear scripts para generación de archivos de prueba
+
+### Paso 6.2: Actualizar Scripts en package.json
+- [ ] Asegurar que todos los scripts mencionados en SETUP.md estén definidos
+- [ ] Probar que los comandos sean ejecutables
+
+---
+
+## Fase 7: Documentación de Pruebas (Baja Prioridad)
+
+### Paso 7.1: Crear Estructura de Tests
+- [ ] Crear directorios de tests según TESTING_STRATEGY.md
+- [ ] Establecer archivos de fixture básicos
+- [ ] Crear helpers de test iniciales
+
+### Paso 7.2: Actualizar Estrategia de Testing
+- [ ] Refinar TESTING_STRATEGY.md con ejemplos prácticos
+- [ ] Asegurar que los umbrales de cobertura sean alcanzables
+
+---
+
+## Fase 8: Validación Final (Crítica)
+
+### Paso 8.1: Verificación de Coherencia
+- [ ] Asegurar que todos los documentos se refieran a archivos que existen
+- [ ] Verificar que las rutas mencionadas sean correctas
+- [ ] Confirmar que las instrucciones sean ejecutables
+
+### Paso 8.2: Prueba de Instalación
+- [ ] Realizar instalación limpia siguiendo las instrucciones actualizadas
+- [ ] Verificar que todos los comandos funcionen como se indica
+- [ ] Asegurar que el proyecto pueda iniciarse correctamente
+
+---
+
+## Estado Actual del Proyecto
+
+**Archivos Presentes:**
+- Carpeta `.agent/` con configuración de agentes IA
+- Carpeta `.vscode/` con configuración de editor
+- Carpeta `config/` con archivos de configuración del analizador
+- Carpeta `docs/` con documentación del proyecto
+
+**Archivos Ausentes Críticos:**
+- `package.json`
+- `README.md` (en raíz)
+- `.gitignore`
+- `src/` (carpeta)
+- `tests/` (carpeta)
+- `examples/` (carpeta)
+- Archivos de configuración de herramientas (jest, eslint, prettier)
+
+---
+
+## Notas Importantes
+
+- Esta planificación debe ejecutarse en orden secuencial para garantizar la coherencia
+- Cada paso debe verificarse antes de continuar con el siguiente
+- La documentación debe mantenerse actualizada conforme se implementen los cambios
+- Se recomienda hacer commits después de completar cada fase para tener puntos de restauración
+
+---
+
+_Última actualización: 2026-01-31_

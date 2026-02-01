@@ -1,0 +1,50 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: test",
+      "type": "npm",
+      "script": "test",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "npm: test:watch",
+      "type": "npm",
+      "script": "test:watch",
+      "problemMatcher": [],
+      "isBackground": true
+    },
+    {
+      "label": "npm: lint",
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "npm: lint:fix",
+      "type": "npm",
+      "script": "lint:fix",
+      "problemMatcher": ["$eslint-stylish"]
+    },
+    {
+      "label": "Analyze Sample",
+      "type": "shell",
+      "command": "node src/index.js --input examples/sample.musicxml --output output/",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Clean Output",
+      "type": "shell",
+      "command": "rm -rf output/* coverage/*",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
+    }
+  ]
+}

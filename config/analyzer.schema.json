@@ -1,0 +1,495 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Analyzer Configuration Schema",
+    "description": "Schema for harmonic analysis configuration",
+    "type": "object",
+    "required": ["version", "analysis", "output"],
+    "properties": {
+        "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "input": {
+            "type": "object",
+            "properties": {
+                "format": {
+                    "type": "string",
+                    "enum": ["musicxml"]
+                },
+                "encoding": {
+                    "type": "string",
+                    "default": "utf-8"
+                },
+                "validation": {
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        },
+        "analysis": {
+            "type": "object",
+            "description": "Analysis configuration options",
+            "properties": {
+                "piano": {
+                    "type": "object",
+                    "properties": {
+                        "handUnification": {
+                            "type": "string",
+                            "enum": ["unified", "separate", "both"]
+                        },
+                        "options": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["unified", "separate", "both"]
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "tonality": {
+                    "type": "object",
+                    "properties": {
+                        "algorithms": {
+                            "type": "object",
+                            "properties": {
+                                "krumhanslSchmuckler": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": { "type": "boolean" },
+                                        "weight": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 1
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "bassAnalysis": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": { "type": "boolean" },
+                                        "weight": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 1
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "noteFrequency": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": { "type": "boolean" },
+                                        "weight": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 1
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "cadenceAnalysis": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enabled": { "type": "boolean" },
+                                        "weight": {
+                                            "type": "number",
+                                            "minimum": 0,
+                                            "maximum": 1
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "consensusThreshold": {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                        },
+                        "detectModes": { "type": "boolean" },
+                        "modes": {
+                            "type": "object",
+                            "properties": {
+                                "major": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                },
+                                "melodicMinor": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                },
+                                "harmonicMinor": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "chords": {
+                    "type": "object",
+                    "properties": {
+                        "granularity": {
+                            "type": "string",
+                            "enum": [
+                                "beat",
+                                "subdivision",
+                                "noteChange",
+                                "configurable"
+                            ]
+                        },
+                        "options": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "beat",
+                                    "subdivision",
+                                    "noteChange",
+                                    "configurable"
+                                ]
+                            }
+                        },
+                        "types": {
+                            "type": "object",
+                            "properties": {
+                                "triads": {
+                                    "type": "object",
+                                    "properties": {
+                                        "major": { "type": "boolean" },
+                                        "minor": { "type": "boolean" },
+                                        "diminished": { "type": "boolean" },
+                                        "augmented": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "sevenths": {
+                                    "type": "object",
+                                    "properties": {
+                                        "major7": { "type": "boolean" },
+                                        "dominant7": { "type": "boolean" },
+                                        "minor7": { "type": "boolean" },
+                                        "halfDiminished": { "type": "boolean" },
+                                        "diminished7": { "type": "boolean" },
+                                        "minorMajor7": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "extensions": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ninth": { "type": "boolean" },
+                                        "eleventh": { "type": "boolean" },
+                                        "thirteenth": { "type": "boolean" },
+                                        "altered": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "suspended": {
+                                    "type": "object",
+                                    "properties": {
+                                        "sus2": { "type": "boolean" },
+                                        "sus4": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "added": {
+                                    "type": "object",
+                                    "properties": {
+                                        "add9": { "type": "boolean" },
+                                        "add11": { "type": "boolean" },
+                                        "sixNine": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "inversions": {
+                            "type": "object",
+                            "properties": {
+                                "detect": { "type": "boolean" },
+                                "classify": { "type": "boolean" },
+                                "notation": {
+                                    "type": "string",
+                                    "enum": ["slash", "figured", "numeric"]
+                                }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "harmony": {
+                    "type": "object",
+                    "properties": {
+                        "numeralSystem": {
+                            "type": "string",
+                            "enum": ["roman", "nashville", "both"]
+                        },
+                        "options": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["roman", "nashville", "both"]
+                            }
+                        },
+                        "functions": {
+                            "type": "object",
+                            "properties": {
+                                "basic": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                },
+                                "advanced": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "tensions": {
+                            "type": "object",
+                            "properties": {
+                                "classify": { "type": "boolean" },
+                                "showAvailable": { "type": "boolean" },
+                                "showAvoid": { "type": "boolean" }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "cadences": {
+                    "type": "object",
+                    "properties": {
+                        "classical": {
+                            "type": "object",
+                            "properties": {
+                                "authenticPerfect": { "type": "boolean" },
+                                "authenticImperfect": { "type": "boolean" },
+                                "plagal": { "type": "boolean" },
+                                "half": { "type": "boolean" },
+                                "deceptive": { "type": "boolean" },
+                                "phrygian": { "type": "boolean" }
+                            },
+                            "additionalProperties": false
+                        },
+                        "jazz": {
+                            "type": "object",
+                            "properties": {
+                                "iiVI": { "type": "boolean" },
+                                "backdoor": { "type": "boolean" },
+                                "tritoneSubstitute": { "type": "boolean" },
+                                "modal": { "type": "boolean" }
+                            },
+                            "additionalProperties": false
+                        },
+                        "searchPositions": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": ["half", "end", "any"]
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "modulations": {
+                    "type": "object",
+                    "properties": {
+                        "detectByAccidentals": { "type": "boolean" },
+                        "detectByProgression": { "type": "boolean" },
+                        "commonTypes": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "dominant",
+                                    "relative",
+                                    "parallel",
+                                    "chromatic"
+                                ]
+                            }
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "scales": {
+                    "type": "object",
+                    "properties": {
+                        "suggestPerChord": { "type": "boolean" },
+                        "showAlternatives": { "type": "boolean" },
+                        "maxAlternatives": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 10
+                        },
+                        "categories": {
+                            "type": "object",
+                            "properties": {
+                                "major": { "type": "boolean" },
+                                "minor": { "type": "boolean" },
+                                "modes": { "type": "boolean" },
+                                "symmetric": { "type": "boolean" },
+                                "bebop": { "type": "boolean" },
+                                "pentatonic": { "type": "boolean" },
+                                "blues": { "type": "boolean" }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "chromaticNotes": {
+                    "type": "object",
+                    "properties": {
+                        "classify": { "type": "boolean" },
+                        "types": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "enum": [
+                                    "passing",
+                                    "neighbor",
+                                    "appoggiatura",
+                                    "escape",
+                                    "anticipation",
+                                    "suspension"
+                                ]
+                            }
+                        },
+                        "suggestFunction": { "type": "boolean" }
+                    },
+                    "additionalProperties": false
+                }
+            },
+            "additionalProperties": false
+        },
+        "output": {
+            "type": "object",
+            "description": "Output configuration options",
+            "properties": {
+                "formats": {
+                    "type": "object",
+                    "properties": {
+                        "musicxml": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "variants": {
+                                    "type": "object",
+                                    "properties": {
+                                        "americanCifrado": {
+                                            "type": "boolean"
+                                        },
+                                        "romanNumerals": { "type": "boolean" },
+                                        "combined": { "type": "boolean" },
+                                        "harmonySymbols": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "chordPosition": {
+                                    "type": "string",
+                                    "enum": ["above", "below", "between"]
+                                },
+                                "positionOptions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["above", "below", "between"]
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "markdown": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "verbosity": {
+                                    "type": "string",
+                                    "enum": [
+                                        "concise",
+                                        "intermediate",
+                                        "detailed"
+                                    ]
+                                },
+                                "verbosityOptions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": [
+                                            "concise",
+                                            "intermediate",
+                                            "detailed"
+                                        ]
+                                    }
+                                },
+                                "sections": {
+                                    "type": "object",
+                                    "properties": {
+                                        "header": { "type": "boolean" },
+                                        "summary": { "type": "boolean" },
+                                        "measureByMeasure": {
+                                            "type": "boolean"
+                                        },
+                                        "progression": { "type": "boolean" },
+                                        "scales": { "type": "boolean" },
+                                        "cadences": { "type": "boolean" },
+                                        "modulations": { "type": "boolean" },
+                                        "pedagogicalNotes": {
+                                            "type": "boolean"
+                                        },
+                                        "technicalData": { "type": "boolean" }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "context": {
+                                    "type": "string",
+                                    "enum": ["classical", "jazz", "both"]
+                                },
+                                "contextOptions": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "string",
+                                        "enum": ["classical", "jazz", "both"]
+                                    }
+                                }
+                            },
+                            "additionalProperties": false
+                        },
+                        "json": {
+                            "type": "object",
+                            "properties": {
+                                "enabled": { "type": "boolean" },
+                                "pretty": { "type": "boolean" },
+                                "includeMetadata": { "type": "boolean" }
+                            },
+                            "additionalProperties": false
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "directory": { "type": "string" },
+                "filenamePattern": { "type": "string" }
+            },
+            "additionalProperties": false
+        },
+        "features": {
+            "type": "object",
+            "properties": {
+                "phase": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 4
+                }
+            }
+        }
+    }
+}

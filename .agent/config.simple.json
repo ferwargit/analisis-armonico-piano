@@ -1,0 +1,24 @@
+{
+    "project": {
+        "name": "analisis-armonico-piano",
+        "type": "node-javascript",
+        "domain": "music-theory-analysis"
+    },
+    "preferences": {
+        "primaryModel": "minimax-m2.1",
+        "fallbackModel": "claude-3-5-sonnet-20241022",
+        "inlineModel": "copilot",
+        "codeStyle": "eslint-prettier",
+        "testFramework": "jest",
+        "documentation": "jsdoc"
+    },
+    "context": {
+        "alwaysInclude": [".agent/context.md", ".agent/rules.md"],
+        "includeOnRequest": ["docs/PROJECT_PLAN.md", "docs/FOLDER_STRUCTURE.md"]
+    },
+    "automation": {
+        "autoGenerateTests": true,
+        "autoDocumentation": true,
+        "autoLint": true
+    }
+}
