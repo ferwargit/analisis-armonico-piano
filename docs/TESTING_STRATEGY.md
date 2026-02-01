@@ -63,90 +63,78 @@ module.exports = {
 
 ---
 
-Estructura de Tests
+## Estructura de Tests
 
 ```
 tests/
 ├── unit/ # Tests unitarios (80%)
-│ ├── core/
-│ │ ├── models/
-│ │ │ ├── Note.test.js
-│ │ │ ├── Chord.test.js
-│ │ │ ├── Measure.test.js
-│ │ │ └── Key.test.js
-│ │ ├── constants/
-│ │ │ └── notes.test.js
-│ │ └── utils/
-│ │ ├── noteUtils.test.js
-│ │ └── intervalUtils.test.js
-│ │
-│ ├── parsing/
-│ │ ├── MusicXMLParser.test.js
-│ │ ├── extractors/
-│ │ │ ├── noteExtractor.test.js
-│ │ │ └── keyExtractor.test.js
-│ │ └── transformers/
-│ │ └── handUnifier.test.js
-│ │
-│ └── analysis/
-│ ├── tonality/
-│ │ ├── TonalityDetector.test.js
-│ │ ├── KrumhanslSchmuckler.test.js
-│ │ └── ConsensusEngine.test.js
-│ ├── chords/
-│ │ ├── ChordDetector.test.js
-│ │ ├── triadMatcher.test.js
-│ │ └── InversionDetector.test.js
-│ ├── harmony/
-│ │ ├── DegreeCalculator.test.js
-│ │ └── FunctionAnalyzer.test.js
-│ └── cadences/
-│ └── CadenceDetector.test.js
+│   ├── core/
+│   │   ├── models/
+│   │   │   ├── Note.test.js
+│   │   │   ├── Chord.test.js
+│   │   │   ├── Measure.test.js
+│   │   │   └── Key.test.js
+│   │   ├── constants/
+│   │   │   └── notes.test.js
+│   │   └── utils/
+│   │       ├── noteUtils.test.js
+│   │       └── intervalUtils.test.js
+│   │
+│   ├── parsing/
+│   │   ├── MusicXMLParser.test.js
+│   │   ├── extractors/
+│   │   │   ├── noteExtractor.test.js
+│   │   │   └── keyExtractor.test.js
+│   │   └── transformers/
+│   │       └── handUnifier.test.js
+│   │
+│   └── analysis/
+│       ├── tonality/
+│       │   ├── TonalityDetector.test.js
+│       │   ├── KrumhanslSchmuckler.test.js
+│       │   └── ConsensusEngine.test.js
+│       ├── chords/
+│       │   ├── ChordDetector.test.js
+│       │   ├── triadMatcher.test.js
+│       │   └── InversionDetector.test.js
+│       ├── harmony/
+│       │   ├── DegreeCalculator.test.js
+│       │   └── FunctionAnalyzer.test.js
+│       └── cadences/
+│           └── CadenceDetector.test.js
 │
 ├── integration/ # Tests de integración (15%)
-│ ├── parsing.integration.test.js
-│ ├── analysis.integration.test.js
-│ ├── output.integration.test.js
-│ └── fullPipeline.integration.test.js
+│   ├── parsing.integration.test.js
+│   ├── analysis.integration.test.js
+│   ├── output.integration.test.js
+│   └── fullPipeline.integration.test.js
 │
 ├── e2e/ # Tests end-to-end (5%)
-│ └── workflow.e2e.test.js
+│   └── workflow.e2e.test.js
 │
 ├── fixtures/ # Datos de prueba
-│ ├── musicxml/
-│ │ ├── simple/
-│ │ │ ├── c-major-triads.musicxml
-│ │ │ ├── a-minor-triads.musicxml
-│ │ │ └── g-major-sevenths.musicxml
-│ │ ├── intermediate/
-│ │ │ ├── ii-v-i-c-major.musicxml
-│ │ │ └── modulation-c-to-g.musicxml
-│ │ └── advanced/
-│ │ ├── jazz-turnaround.musicxml
-│ │ └── modal-dorian.musicxml
-│ │
-│ ├── expected/ # Resultados esperados
-│ │ ├── c-major-triads.json
-│ │ └── ...
-│ │
-│ └── mocks/ # Objetos mock
-│ ├── mockNotes.js
-│ ├── mockChords.js
-│ └── mockMeasures.js
+│   ├── musicxml/
+│   │   ├── simple-c-major.musicxml
+│   │   ├── c-major-progression.musicxml
+│   │   ├── jazz-ii-v-i.musicxml
+│   │   └── inversions-test.musicxml
+│   ├── expected/ # Resultados esperados
+│   │   └── c-major-progression.json
+│   └── mocks/ # Objetos mock
+│       └── mockData.js
 │
 └── helpers/ # Utilidades para tests
-├── setup.js # Configuración global
-├── testUtils.js # Funciones helper
-├── musicTestHelpers.js # Helpers específicos de música
-└── matchers/ # Custom matchers de Jest
-└── chordMatchers.js
+    ├── setup.js # Configuración global
+    ├── testUtils.js # Funciones helper
+    └── matchers/ # Custom matchers de Jest
+        └── chordMatchers.js
 ```
 
 ---
 
-Patrones de Testing
+## Patrones de Testing
 
-1. Tests Unitarios - Ejemplo Modelo Note
+### 1. Tests Unitarios - Ejemplo Modelo Note
 
 ```js
 // tests/unit/core/models/Note.test.js
@@ -203,7 +191,7 @@ describe("Note", () => {
 });
 ```
 
-2. Tests Unitarios - Ejemplo ChordDetector
+### 2. Tests Unitarios - Ejemplo ChordDetector
 
 ```js
 // tests/unit/analysis/chords/ChordDetector.test.js
@@ -312,7 +300,7 @@ describe("ChordDetector", () => {
 });
 ```
 
-3. Tests de Tonalidad
+### 3. Tests de Tonalidad
 
 ```js
 // tests/unit/analysis/tonality/TonalityDetector.test.js
@@ -372,7 +360,7 @@ describe("TonalityDetector", () => {
 });
 ```
 
-4. Tests de Integración
+### 4. Tests de Integración
 
 ```js
 // tests/integration/fullPipeline.integration.test.js
@@ -397,7 +385,7 @@ describe("Full Analysis Pipeline", () => {
         beforeAll(async () => {
             const filePath = path.join(
                 __dirname,
-                "../fixtures/musicxml/simple/c-major-triads.musicxml",
+                "../fixtures/musicxml/c-major-progression.musicxml",
             );
             const xmlContent = fs.readFileSync(filePath, "utf-8");
 
@@ -418,8 +406,9 @@ describe("Full Analysis Pipeline", () => {
         it("should identify authentic cadence", () => {
             expect(result.cadences).toContainEqual(
                 expect.objectContaining({
-                    type: "authentic",
+                    type: "authenticPerfect",
                     location: "end",
+                    measures: [3, 4],
                 }),
             );
         });
@@ -442,7 +431,7 @@ describe("Full Analysis Pipeline", () => {
 
 ---
 
-Custom Matchers
+## Custom Matchers
 
 ```js
 // tests/helpers/matchers/chordMatchers.js
@@ -483,17 +472,14 @@ expect.extend({
 
 ## Datos de Prueba (Fixtures)
 
-### Archivos MusicXML de Prueba a Crear
+### Archivos MusicXML de Prueba Disponibles
 
 | Archivo                      | Contenido               | Propósito           |
 | :--------------------------- | :---------------------- | :------------------ |
-| `c-major-triads.musicxml`    | C-F-G-C en C mayor      | Test básico triadas |
-| `a-minor-triads.musicxml`    | Am-Dm-E-Am              | Test menor natural  |
-| `g-major-sevenths.musicxml`  | Gmaj7-Cmaj7-D7-G        | Test séptimas       |
-| `ii-v-i-c-major.musicxml`    | Dm7-G7-Cmaj7            | Test jazz básico    |
+| `simple-c-major.musicxml`    | C-E-G en C mayor        | Test básico triadas |
+| `c-major-progression.musicxml` | Progresión I-IV-V-I en C mayor | Test progresión armónica |
+| `jazz-ii-v-i.musicxml`       | Progresión II-V-I en C mayor | Test acordes de séptima |
 | `inversions-test.musicxml`   | Acordes con inversiones | Test inversiones    |
-| `modulation-c-to-g.musicxml` | Modulación C→G          | Test modulación     |
-| `modal-dorian.musicxml`      | D dórico                | Test modos          |
 
 ---
 
@@ -518,26 +504,29 @@ expect.extend({
 
 ## Cobertura Mínima por Módulo
 
-- Módulo Cobertura Mínima
-- core/models 90%
-- core/utils 90%
-- parsing 85%
-- analysis/tonality 85%
-- analysis/chords 90%
-- analysis/harmony 80%
-- analysis/cadences 80%
-- output 75%
+| Módulo | Cobertura Mínima |
+|--------|------------------|
+| core/models | 90% |
+| core/utils | 90% |
+| parsing | 85% |
+| analysis/tonality | 85% |
+| analysis/chords | 90% |
+| analysis/harmony | 80% |
+| analysis/cadences | 80% |
+| output | 75% |
+
+Los umbrales de cobertura están cuidadosamente establecidos para equilibrar calidad del código con productividad del equipo. Los módulos centrales (models, utils) tienen umbrales más altos debido a su importancia crítica para el sistema.
 
 ---
 
 ## Checklist Pre-Commit
 
-- Todos los tests pasan (npm test)
-- Cobertura cumple umbrales
-- No hay tests saltados (.skip)
-- Tests nuevos para código nuevo
-- Tests de regresión para bugs corregidos
+- [ ] Todos los tests pasan (npm test)
+- [ ] Cobertura cumple umbrales (npm run test:coverage)
+- [ ] No hay tests saltados (.skip)
+- [ ] Tests nuevos para código nuevo
+- [ ] Tests de regresión para bugs corregidos
 
 ---
 
-- Última actualización: 2026-02-01
+_Última actualización: 2026-01-31_

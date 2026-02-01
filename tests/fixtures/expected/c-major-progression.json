@@ -1,0 +1,48 @@
+{
+  "tonality": {
+    "key": "C",
+    "mode": "major",
+    "confidence": 0.95
+  },
+  "chords": [
+    {
+      "root": "C",
+      "type": "major",
+      "symbol": "C",
+      "inversion": 0,
+      "notes": ["C4", "E4", "G4", "C5"]
+    },
+    {
+      "root": "F",
+      "type": "major",
+      "symbol": "F",
+      "inversion": 0,
+      "notes": ["F4", "A4", "C5", "F5"]
+    },
+    {
+      "root": "G",
+      "type": "major",
+      "symbol": "G",
+      "inversion": 0,
+      "notes": ["G4", "B4", "D5", "G5"]
+    },
+    {
+      "root": "C",
+      "type": "major",
+      "symbol": "C",
+      "inversion": 0,
+      "notes": ["C4", "E4", "G4", "C5"]
+    }
+  ],
+  "progression": {
+    "romanNumerals": ["I", "IV", "V", "I"],
+    "functions": ["T", "S", "D", "T"]
+  },
+  "cadences": [
+    {
+      "type": "authenticPerfect",
+      "location": "end",
+      "measures": [3, 4]
+    }
+  ]
+}
