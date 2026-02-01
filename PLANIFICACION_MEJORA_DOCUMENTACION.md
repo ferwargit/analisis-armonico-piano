@@ -37,16 +37,16 @@ Actualizar y crear los archivos necesarios para que el proyecto tenga una base s
 ## Fase 2: Configuración de Herramientas de Desarrollo (Alta Prioridad)
 
 ### Paso 2.1: Configurar Jest
-- [ ] Crear `jest.config.js` con la configuración especificada en TESTING_STRATEGY.md
-- [ ] Incluir umbrales de cobertura, directorios de test, etc.
+- [x] Crear `jest.config.js` con la configuración especificada en TESTING_STRATEGY.md
+- [x] Incluir umbrales de cobertura, directorios de test, etc.
 
 ### Paso 2.2: Configurar ESLint
-- [ ] Crear `.eslintrc.json` con las reglas especificadas en SETUP.md
-- [ ] Incluir reglas para JavaScript moderno, buenas prácticas y consistencia
+- [x] Crear `.eslintrc.json` con las reglas especificadas en SETUP.md
+- [x] Incluir reglas para JavaScript moderno, buenas prácticas y consistencia
 
 ### Paso 2.3: Configurar Prettier
-- [ ] Crear `.prettierrc` con las opciones especificadas en SETUP.md
-- [ ] Asegurar consistencia de formato en todo el código
+- [x] Crear `.prettierrc` con las opciones especificadas en SETUP.md
+- [x] Asegurar consistencia de formato en todo el código
 
 ---
 
