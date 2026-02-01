@@ -1,6 +1,6 @@
 # 📚 Documentación del Proyecto - Análisis Armónico Piano
 
-Este directorio contiene toda la documentación del proyecto. Utiliza este índice para navegar entre los documentos.
+Este directorio contiene toda la documentación técnica detallada del proyecto. Para una visión general del proyecto, instalación y uso rápido, consulta el [README principal](../README.md) en la raíz del proyecto.
 
 ---
 
@@ -22,7 +22,6 @@ Este directorio contiene toda la documentación del proyecto. Utiliza este índi
 
 ```
 docs/
-├── README.md                    # Este índice
 ├── PROJECT_PLAN.md              # Plan del proyecto
 ├── FOLDER_STRUCTURE.md          # Estructura de carpetas
 ├── SETUP.md                     # Configuración del entorno
