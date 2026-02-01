@@ -15,7 +15,8 @@
     "lint:fix": "eslint src/**/*.js tests/**/*.js --fix",
     "format": "prettier --write \"src/**/*.js\" \"tests/**/*.js\" \"*.md\"",
     "setup": "node scripts/setup.js",
-    "validate-config": "node scripts/validate-config.js"
+    "validate-config": "node scripts/validate-config.js",
+    "generate-test-files": "node scripts/generate-test-files.js"
   },
   "keywords": [
     "music",

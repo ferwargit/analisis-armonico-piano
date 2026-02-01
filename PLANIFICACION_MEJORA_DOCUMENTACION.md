@@ -100,13 +100,13 @@ Actualizar y crear los archivos necesarios para que el proyecto tenga una base s
 ## Fase 6: Scripts de Desarrollo (Media Prioridad)
 
 ### Paso 6.1: Crear Scripts de Utilidad
-- [ ] Crear `scripts/analyze.js` como punto de entrada CLI
-- [ ] Implementar scripts para validación de configuración
-- [ ] Crear scripts para generación de archivos de prueba
+- [x] Crear `scripts/analyze.js` como punto de entrada CLI
+- [x] Implementar scripts para validación de configuración
+- [x] Crear scripts para generación de archivos de prueba
 
 ### Paso 6.2: Actualizar Scripts en package.json
-- [ ] Asegurar que todos los scripts mencionados en SETUP.md estén definidos
-- [ ] Probar que los comandos sean ejecutables
+- [x] Asegurar que todos los scripts mencionados en SETUP.md estén definidos
+- [x] Probar que los comandos sean ejecutables
 
 ---
 
