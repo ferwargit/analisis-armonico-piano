@@ -33,7 +33,7 @@
     {
       "label": "Analyze Sample",
       "type": "shell",
-      "command": "node src/index.js --input examples/sample.musicxml --output output/",
+      "command": "node src/index.js --input examples/input/sample.musicxml --output output/",
       "problemMatcher": [],
       "group": "build"
     },

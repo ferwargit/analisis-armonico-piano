@@ -88,12 +88,12 @@ Actualizar y crear los archivos necesarios para que el proyecto tenga una base s
 ## Fase 5: Configuración de Entorno de Desarrollo (Media Prioridad)
 
 ### Paso 5.1: Actualizar Configuración de VSCode
-- [ ] Asegurar que las referencias en launch.json y tasks.json sean válidas
-- [ ] Verificar que las extensiones recomendadas estén alineadas con las herramientas usadas
+- [x] Asegurar que las referencias en launch.json y tasks.json sean válidas
+- [x] Verificar que las extensiones recomendadas estén alineadas con las herramientas usadas
 
 ### Paso 5.2: Crear Archivos de Ejemplo
-- [ ] Crear archivos MusicXML de ejemplo en `examples/input/`
-- [ ] Establecer casos de prueba básicos para pruebas iniciales
+- [x] Crear archivos MusicXML de ejemplo en `examples/input/`
+- [x] Establecer casos de prueba básicos para pruebas iniciales
 
 ---
 

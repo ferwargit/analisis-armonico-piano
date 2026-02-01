@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Run Analyzer",
       "program": "${workspaceFolder}/src/index.js",
-      "args": ["--input", "${workspaceFolder}/examples/sample.musicxml"],
+      "args": ["--input", "${workspaceFolder}/examples/input/sample.musicxml"],
       "console": "integratedTerminal",
       "skipFiles": ["<node_internals>/**"]
     },
