@@ -31,7 +31,7 @@
 
 ## Debilidades o Limitaciones
 
-### 1. Razonamiento Musical Compleso
+### 1. Razonamiento Musical Complejo
 
 - Dificultades con modulaciones complejas
 - Limitado en análisis de armonía extendida jazz

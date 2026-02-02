@@ -258,7 +258,9 @@ analisis-armonico-piano/
 │ │ ├── classical-exercise-1.musicxml
 │ │ ├── jazz-ii-v-i.musicxml
 │ │ └── pop-progression.musicxml
-│ └── 📁 output/ # Outputs de ejemplo
+│ ├── 📁 output/ # Outputs de ejemplo
+│ └── 📁 templates/ # Plantillas para crear nuevos ejemplos
+│ │ └── template.musicxml # Plantilla estándar con formato correcto
 │ ├── classical-exercise-1/
 │ │ ├── analysis.json
 │ │ ├── report.md

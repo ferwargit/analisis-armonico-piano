@@ -73,6 +73,10 @@ analisis-armonico-piano/
 ├── tests/                 # Tests del proyecto
 ├── docs/                  # Documentación
 ├── examples/              # Archivos de ejemplo
+│   ├── input/             # Archivos MusicXML de entrada
+│   ├── output/            # Archivos de salida generados
+│   └── templates/         # Plantillas para crear nuevos ejemplos
+│       └── template.musicxml # Plantilla estándar con formato correcto
 ├── config/                # Configuración del analizador
 └── scripts/               # Scripts de utilidad
 ```
@@ -95,9 +99,7 @@ analisis-armonico-piano/
 - `npm run lint:fix` - Corregir problemas de calidad automáticamente
 - `npm run format` - Formatear código
 
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor, consulta [CONTRIBUTING.md](docs/CONTRIBUTING.md) para detalles sobre nuestro código de conducta y el proceso para enviar pull requests.
+## 📋 Tareas
 
 Consulta [TASKS.md](docs/TASKS.md) para ver las tareas pendientes y en progreso.
 

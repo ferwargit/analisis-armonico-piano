@@ -112,7 +112,7 @@ npm start # Ejecutar el programa principal
 ## Próximos Pasos
 
 - ✅ Verificar que el setup funciona (npm test)
-- ⬜ Crear primer archivo MusicXML de prueba en MuseScore
+- ⬜ Utilizar plantilla en `examples/templates/template.musicxml` como base para crear archivos MusicXML de prueba
 - ⬜ Implementar modelo Note (FASE 1)
 - ⬜ Comenzar con parsing básico
 

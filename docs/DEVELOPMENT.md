@@ -43,6 +43,10 @@ analisis-armonico-piano/
 │   └── analyzer.schema.json
 ├── docs/                      # Documentación
 ├── examples/                  # Archivos MusicXML de ejemplo
+│   ├── input/                 # Archivos MusicXML de entrada
+│   ├── output/                # Archivos de salida generados
+│   └── templates/             # Plantillas para crear nuevos ejemplos
+│       └── template.musicxml  # Plantilla estándar con formato correcto
 ├── n8n/                       # Integración con n8n
 │   ├── workflows/
 │   └── nodes/
